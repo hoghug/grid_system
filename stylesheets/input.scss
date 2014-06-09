@@ -1,0 +1,75 @@
+$columns: 12;
+$gutters: 1%;
+
+
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, div, img, span, h1, h2, h3, h4, p, ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+ 
+* {
+  font-weight: normal !important;
+  @include box-sizing;
+}
+
+body {
+	background-color: black;
+}
+
+#wrapper {
+	width: 90%;
+	margin: 0 auto;
+	padding: 5%;
+	background-color: white;
+}
+
+.clearfix {
+	&:after {
+	    content: "";
+	    display: table;
+	    clear: both; 
+	}
+}
+
+.row {
+	width: 100%;
+	margin: 1em auto;
+	@extend .clearfix;
+}
+
+
+.column {
+	float: left;
+	padding: 1em 0;
+	background-color: gray;
+	// border: 1px solid black;
+}
+
+
+@mixin grid-cell($i) {
+	width: (101% / ($columns / $i) - $gutters);
+	margin-right: $gutters;
+}
+
+
+
+
+@for $i from 1 through $columns {
+	.grid-#{$i} {
+		@include grid-cell($i)
+	}
+}
+
+.last {
+	margin-right: 0;
+}
