@@ -1,11 +1,45 @@
 <html>
 <head>
-	<title></title>
+	<title>Custom Grid</title>
+	<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="stylesheets/output.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="scripts/slideshow.js"></script>
 </head>
 <body>
 
 	<div id="wrapper">
+
+
+		<div class="row">
+			<div class="counter column grid-12 last">
+				<div class="slideshow">
+					<img class="slide" src="images/1.jpg">
+					<img class="slide" src="images/2.jpg">
+					<img class="slide" src="images/3.jpg">
+					<img class="slide" src="images/4.jpg">
+					<img class="slide" src="images/5.jpg">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="column grid-6">
+				<div class="slideshow">
+					<img class="slide" src="images/2.jpg">
+					<img class="slide" src="images/4.jpg">
+					<img class="slide" src="images/1.jpg">
+				</div>
+			</div>
+			<div class="column grid-6 last">
+				<div class="slideshow">
+					<img class="slide" src="images/3.jpg">
+					<img class="slide" src="images/1.jpg">
+					<img class="slide" src="images/4.jpg">
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="column grid-12 last">grid 12</div>
 		</div>
@@ -43,6 +77,21 @@
 		<div class="row">
 			<div class="column grid-9">grid 9</div>
 			<div class="column grid-3 last">grid 3</div>
+		</div>
+
+		<div class="row">
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1">grid 1</div>
+			<div class="column grid-1 last">grid 1</div>
 		</div>
 
 	</div>

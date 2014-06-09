@@ -13,7 +13,8 @@ html, body, div, img, span, h1, h2, h3, h4, p, ol, ul, li {
   box-sizing: border-box; }
 
 body {
-  background-color: black; }
+  background-color: black;
+  font-family: 'Arimo', sans-serif; }
 
 #wrapper {
   width: 90%;
@@ -32,56 +33,59 @@ body {
 
 .column {
   float: left;
-  padding: 1em 0;
-  background-color: gray; }
+  padding: 1em;
+  background-color: #B08F4C;
+  margin-right: 1%; }
 
 .grid-1 {
-  width: 7.41667%;
-  margin-right: 1%; }
+  width: 7.41667%; }
 
 .grid-2 {
-  width: 15.83333%;
-  margin-right: 1%; }
+  width: 15.83333%; }
 
 .grid-3 {
-  width: 24.25%;
-  margin-right: 1%; }
+  width: 24.25%; }
 
 .grid-4 {
-  width: 32.66667%;
-  margin-right: 1%; }
+  width: 32.66667%; }
 
 .grid-5 {
-  width: 41.08333%;
-  margin-right: 1%; }
+  width: 41.08333%; }
 
 .grid-6 {
-  width: 49.5%;
-  margin-right: 1%; }
+  width: 49.5%; }
 
 .grid-7 {
-  width: 57.91667%;
-  margin-right: 1%; }
+  width: 57.91667%; }
 
 .grid-8 {
-  width: 66.33333%;
-  margin-right: 1%; }
+  width: 66.33333%; }
 
 .grid-9 {
-  width: 74.75%;
-  margin-right: 1%; }
+  width: 74.75%; }
 
 .grid-10 {
-  width: 83.16667%;
-  margin-right: 1%; }
+  width: 83.16667%; }
 
 .grid-11 {
-  width: 91.58333%;
-  margin-right: 1%; }
+  width: 91.58333%; }
 
 .grid-12 {
-  width: 100%;
-  margin-right: 1%; }
+  width: 100%; }
 
 .last {
   margin-right: 0; }
+
+.slideshow .slide {
+  width: 100%;
+  display: none; }
+
+.controls {
+  margin: 5px 0;
+  cursor: pointer; }
+  .controls .thumbnail {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    background-color: black; }

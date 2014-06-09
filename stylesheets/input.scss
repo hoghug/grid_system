@@ -24,6 +24,7 @@ html, body, div, img, span, h1, h2, h3, h4, p, ol, ul, li {
 
 body {
 	background-color: black;
+	font-family: 'Arimo', sans-serif;
 }
 
 #wrapper {
@@ -50,18 +51,15 @@ body {
 
 .column {
 	float: left;
-	padding: 1em 0;
-	background-color: gray;
-	// border: 1px solid black;
-}
-
-
-@mixin grid-cell($i) {
-	width: (101% / ($columns / $i) - $gutters);
+	padding: 1em;
+	background-color: #B08F4C;
 	margin-right: $gutters;
 }
 
 
+@mixin grid-cell($i) {
+	width: ((100% + $gutters) / ($columns / $i) - $gutters);
+}
 
 
 @for $i from 1 through $columns {
@@ -73,3 +71,27 @@ body {
 .last {
 	margin-right: 0;
 }
+
+
+.slideshow {
+
+	.slide {
+		width: 100%;
+		display: none;
+	}
+}
+
+.controls {
+		margin: 5px 0;
+		cursor: pointer;
+
+		.thumbnail {
+			display: inline-block;
+			width:20px;
+			height: 20px;
+			margin: 0 3px;
+			background-color: black;
+			
+
+		}
+	}
