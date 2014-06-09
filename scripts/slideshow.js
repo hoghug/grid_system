@@ -10,19 +10,14 @@ $(document).ready(function(){
 
 		addControls: function(){
 			$('.slideshow').each(function() {
-				
-
 				slideCount = $(this).find('.slide').length;
 				var thumbnails = '';
 
 				for (x = 0; x < slideCount; x++) {
-					thumbnails += '<span class="thumbnail" rel="' + x + '"></span>';
+					thumbnails += '<span class="thumbnail"></span>';
 				}
 
 				var controls = '<div class="controls"><span class="prev">PREV</span><span class="thumbs">' + thumbnails + '</span><span class="next">NEXT</span></div>'
-
-				$(this).attr('data-slide-count', slideCount);
-				$(this).attr('data-current-slide', 1);
 
 				$(this).after(controls);
 				SS.startSlideshow($(this));
@@ -36,12 +31,14 @@ $(document).ready(function(){
 
 		thumbnailClick: function(){
 			$('body').on('click', '.thumbnail', function() {
-				curSlide = $(this).closest('.controls').prev('.slideshow').find('.slide:visible');
-				curSlide.removeClass('active');
-				var newSlide = $(this).attr('rel');
-				$(this).closest('.controls').prev('.slideshow').find('.slide:nth-child(' + newSlide + ')').addClass('active');
-				console.log($(this).siblings())
+
+				var curSlide = SS.findCurrentSlide($(this));
 				SS.removeCurrentThumb($(this).parent());
+				curSlide.removeClass('active');
+
+				var newSlide = $(this).index() + 1;
+				console.log(newSlide);
+				$(this).closest('.controls').prev('.slideshow').find('.slide:nth-child(' + newSlide + ')').addClass('active');
 				SS.addCurrentThumb($(this))
 
 			});
@@ -49,32 +46,35 @@ $(document).ready(function(){
 
 		prevSlide: function() {
 			$('body').on('click', '.prev', function() {
-				var curSlide = $(this).closest('.controls').prev('.slideshow').find('.slide:visible');
+				var curSlide = SS.findCurrentSlide($(this));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForFirst(curSlide)) {
 					SS.addCurrentThumb($(this).next().find('.thumbnail:last-child'));
 					curSlide.removeClass('active').closest('.slideshow').find('.slide:last-child').addClass('active');
 				} else {
-					curSlide.removeClass('active').prev('.slide').addClass('active');;
-					SS.addCurrentThumb($(this).next().find('.thumbnail[rel*="' + (curSlide.index() - 1) + '"]'));
+					curSlide.removeClass('active').prev('.slide').addClass('active');
+					SS.addCurrentThumb($(this).next().find('.thumbnail:nth-child(' + curSlide.index() + ')'));
 				}
 			});
 		},
 
 		nextSlide: function(){
 			$('body').on('click', '.next', function() {
-				var curSlide = $(this).closest('.controls').prev('.slideshow').find('.slide:visible');
+				var curSlide = SS.findCurrentSlide($(this));
 				SS.removeCurrentThumb($(this).parent());
 				if (SS.checkForLast(curSlide)) {
 					SS.addCurrentThumb($(this).prev().find('.thumbnail:first-child'));
 					curSlide.removeClass('active').closest('.slideshow').find('.slide:first-child').addClass('active');
 				} else {
 					curSlide.removeClass('active').next('.slide').addClass('active');
-					SS.addCurrentThumb($(this).prev().find('.thumbnail[rel*="' + (curSlide.index() + 1) + '"]'));
+					SS.addCurrentThumb($(this).prev().find('.thumbnail:nth-child(' + (curSlide.index() + 2) + ')'));
 				}
 			});
 		},
 
+		findCurrentSlide: function(ele){
+			return ele.closest('.controls').prev('.slideshow').find('.slide:visible');
+		},
 
 		checkForLast: function(slide){
 			return slide.is(':last-child');
