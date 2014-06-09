@@ -78,6 +78,10 @@ body {
 	.slide {
 		width: 100%;
 		display: none;
+
+		&.active {
+			display: block;
+		}
 	}
 }
 
@@ -91,7 +95,11 @@ body {
 			height: 20px;
 			margin: 0 3px;
 			background-color: black;
-			
+			border-radius: 10px;
+
+			&.current {
+				background-color: yellow;
+			}
 
 		}
 	}

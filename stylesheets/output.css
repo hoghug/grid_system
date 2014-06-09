@@ -79,6 +79,8 @@ body {
 .slideshow .slide {
   width: 100%;
   display: none; }
+  .slideshow .slide.active {
+    display: block; }
 
 .controls {
   margin: 5px 0;
@@ -88,4 +90,7 @@ body {
     width: 20px;
     height: 20px;
     margin: 0 3px;
-    background-color: black; }
+    background-color: black;
+    border-radius: 10px; }
+    .controls .thumbnail.current {
+      background-color: yellow; }
