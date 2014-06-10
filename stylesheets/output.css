@@ -119,6 +119,9 @@ body {
 .controls {
   margin: 5px 0;
   cursor: pointer; }
+  .controls .next, .controls .prev {
+    color: black;
+    text-decoration: none; }
   .controls .thumbnail {
     display: inline-block;
     width: 20px;

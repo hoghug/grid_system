@@ -6,6 +6,13 @@ $(document).ready(function(){
 			SS.prevSlide();
 			SS.nextSlide();
 			SS.thumbnailClick();
+			SS.ignoreHashAnchor();
+		},
+
+		ignoreHashAnchor: function() {
+			$('body').on('click', 'a[href="#"]', function() {
+				event.preventDefault();
+			});
 		},
 
 		addControls: function(){
@@ -14,12 +21,12 @@ $(document).ready(function(){
 				var thumbnails = '';
 
 				for (x = 0; x < slideCount; x++) {
-					thumbnails += '<span class="thumbnail"></span>';
+					thumbnails += '<a href="#" class="thumbnail"></a>';
 				}
 
-				var controls = '<div class="controls"><span class="prev">PREV</span><span class="thumbs">' + thumbnails + '</span><span class="next">NEXT</span></div>'
+				var slideControls = '<div class="controls"><a href="#" class="prev">PREV</a><span class="thumbs">' + thumbnails + '</span><a href="#" class="next">NEXT</a></div>'
 
-				$(this).after(controls);
+				$(this).after(slideControls);
 				SS.startSlideshow($(this));
 			});
 		},
@@ -31,7 +38,6 @@ $(document).ready(function(){
 
 		thumbnailClick: function(){
 			$('body').on('click', '.thumbnail', function() {
-
 				var curSlide = SS.findCurrentSlide($(this));
 				SS.removeCurrentThumb($(this).parent());
 				curSlide.removeClass('active');
@@ -73,7 +79,7 @@ $(document).ready(function(){
 		},
 
 		findCurrentSlide: function(ele){
-			return ele.closest('.controls').prev('.slideshow').find('.slide:visible');
+			return ele.closest('.controls').prev('.slideshow').find('.active');
 		},
 
 		checkForLast: function(slide){

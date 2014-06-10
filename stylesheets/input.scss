@@ -110,6 +110,11 @@ body {
 		margin: 5px 0;
 		cursor: pointer;
 
+		.next, .prev {
+			color: black;
+			text-decoration: none;
+		}
+
 		.thumbnail {
 			display: inline-block;
 			width:20px;
@@ -123,4 +128,6 @@ body {
 			}
 
 		}
+
+
 	}
